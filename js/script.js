@@ -1,5 +1,5 @@
 // API Base URL
-const API_BASE_URL = 'https://wearbackend.vercel.app/'; // Ganti ke URL backend jika dihosting
+const API_BASE_URL = 'https://wearbackend.vercel.app'; // Tanpa "/" di akhir
 
 // Data Produk (Simulasi database)
 let products = [];
@@ -91,7 +91,7 @@ window.addEventListener('click', (e) => {
 // Order Form
 orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     const productId = document.getElementById('productId').value;
     const name = document.getElementById('name').value;
     const phone = document.getElementById('phone').value;
@@ -103,16 +103,16 @@ orderForm.addEventListener('submit', (e) => {
     const totalPrice = product.price * quantity;
 
     const message = `Halo FashionStore, saya ingin memesan:\n\n` +
-                   `*Nama Produk:* ${product.name}\n` +
-                   `*Harga:* Rp ${product.price.toLocaleString('id-ID')}\n` +
-                   `*Ukuran:* ${size}\n` +
-                   `*Jumlah:* ${quantity}\n` +
-                   `*Total Harga:* Rp ${totalPrice.toLocaleString('id-ID')}\n\n` +
-                   `*Data Pemesan:*\n` +
-                   `Nama: ${name}\n` +
-                   `No. WhatsApp: ${phone}\n` +
-                   `Alamat: ${address}\n\n` +
-                   `Terima kasih.`;
+        `*Nama Produk:* ${product.name}\n` +
+        `*Harga:* Rp ${product.price.toLocaleString('id-ID')}\n` +
+        `*Ukuran:* ${size}\n` +
+        `*Jumlah:* ${quantity}\n` +
+        `*Total Harga:* Rp ${totalPrice.toLocaleString('id-ID')}\n\n` +
+        `*Data Pemesan:*\n` +
+        `Nama: ${name}\n` +
+        `No. WhatsApp: ${phone}\n` +
+        `Alamat: ${address}\n\n` +
+        `Terima kasih.`;
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/6281234567890?text=${encodedMessage}`, '_blank');
@@ -130,7 +130,7 @@ adminLogin.addEventListener('click', async (e) => {
     const password = prompt('Masukkan password admin:');
     if (password === 'admin123') {
         adminPanel.style.display = 'block';
-        await fetchProductsFromServer(); 
+        await fetchProductsFromServer();
         loadAdminProducts();
         window.scrollTo(0, 0);
     } else if (password !== null) {
@@ -158,7 +158,7 @@ function loadAdminProducts() {
 
     document.querySelectorAll('.edit-btn').forEach(button => {
         button.addEventListener('click', (e) => {
-            const productId = e.target.getAttribute('data-id'); 
+            const productId = e.target.getAttribute('data-id');
             editProduct(productId);
         });
     });
@@ -246,9 +246,9 @@ adminProductForm.addEventListener('submit', async (e) => {
     formData.append('sizes', sizes);
 
     if (fileInput.files && fileInput.files.length > 0) {
-        formData.append('image', fileInput.files[0]); 
+        formData.append('image', fileInput.files[0]);
     } else if (existingImageUrl) {
-        formData.append('imageUrl', existingImageUrl); 
+        formData.append('imageUrl', existingImageUrl);
     }
 
     try {
