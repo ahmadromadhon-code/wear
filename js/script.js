@@ -1,4 +1,3 @@
-// API Base URL
 const API_BASE_URL = 'https://wear-backend.vercel.app'; // Ganti ke URL backend jika dihosting
 
 // Data Produk (Simulasi database)
