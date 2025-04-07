@@ -1,11 +1,11 @@
 // API Base URL
-const API_BASE_URL = 'https://wearbackend.vercel.app'; // Tanpa "/" di akhir
+const API_BASE_URL = 'https://wearbackend.vercel.app'; 
 
 // Data Produk (Simulasi database)
 let products = [];
 async function fetchProductsFromServer() {
     try {
-        const res = await fetch(`${API_BASE_URL}/api/products`);
+        const res = await fetch(`${API_BASE_URL}`);
         products = await res.json();
         console.log('Produk dari server:', products); 
         loadProducts();
@@ -169,7 +169,7 @@ function loadAdminProducts() {
             if (!confirm('Apakah Anda yakin ingin menghapus produk ini?')) return;
 
             try {
-                const res = await fetch(`${API_BASE_URL}/api/products/${productId}`, {
+                const res = await fetch(`${API_BASE_URL}${productId}`, {
                     method: 'DELETE'
                 });
 
@@ -252,7 +252,7 @@ adminProductForm.addEventListener('submit', async (e) => {
     }
 
     try {
-        const res = await fetch(id ? `${API_BASE_URL}/api/products/${id}` : `${API_BASE_URL}/api/products`, {
+        const res = await fetch(id ? `${API_BASE_URL}${id}` : `${API_BASE_URL}`, {
             method: id ? 'PUT' : 'POST',
             body: formData
         });
