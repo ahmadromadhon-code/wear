@@ -1,5 +1,5 @@
 // API Base URL
-const API_BASE_URL = 'http://localhost:5000'; // Ganti ke URL backend jika dihosting
+const API_BASE_URL = 'https://wearbackend.vercel.app/'; // Ganti ke URL backend jika dihosting
 
 // Data Produk (Simulasi database)
 let products = [];
